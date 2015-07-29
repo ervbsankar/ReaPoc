@@ -1,0 +1,39 @@
+<br/>
+<div class="input-append">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Dept Id:</label>
+                <input type="text" ng-model="newDept" style="width:60px"/>
+                 &nbsp;&nbsp;
+                <label>Class Id:</label>
+                <input type="text" ng-model="newDept" style="width:60px"/>
+                &nbsp;&nbsp;
+                <label>Item Id:</label>
+                <input type="text" ng-model="newDept" style="width:100px"/>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>Date: </label>
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened"
+                       datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"
+                       close-text="Close"/>
+                <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="opened=!opened;open($event)"><i
+                                class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+            </p>
+        </div>
+        <br/>
+        <div class="col-md-3 pull-right">
+            <button class="btn btn-primary" ng-disabled="disableCheck()"
+                    ng-click="addPlayer()">
+                <i class="fa fa-search fa-md"></i> Find Otl
+            </button>
+        </div>
+    </div>
+</div>
+
+

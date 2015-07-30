@@ -72,6 +72,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Spring Hateoas to support json -->
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+            <version>0.17.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>

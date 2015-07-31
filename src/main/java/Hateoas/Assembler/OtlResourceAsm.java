@@ -24,11 +24,15 @@ public class OtlResourceAsm extends ResourceAssemblerSupport<ReaOtl, OtlResource
         res.setPbiQty(en.getPbiQty());
         res.setDdQty(en.getDdQty());
         res.setOtlQty(en.getOtlQty());
+        res.setOhQty(en.getOhQty());
+        res.setOoQty(en.getOoQty());
+        res.setOwQty(en.getOwQty());
+        res.setLibQty(en.getLibQty());
+        res.setTranQty(en.getTranQty());
         res.add(linkTo(OtlController.class)
                 .slash(res.getDeptId())
                 .slash(res.getClassId())
                 .slash(res.getItemId())
-                .slash(res.getStoreId())
                 .withSelfRel());
         return res;
     }

@@ -3,19 +3,20 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label>Dept Id:</label>
+                <label>Category:</label>
                 <input type="text" ng-model="newDept" style="width:60px"/>
-                 &nbsp;&nbsp;
-                <label>Class Id:</label>
-                <input type="text" ng-model="newDept" style="width:60px"/>
-                &nbsp;&nbsp;
-                <label>Item Id:</label>
-                <input type="text" ng-model="newDept" style="width:100px"/>
+                &nbsp;&nbsp;&nbsp;
+                <label>Style:</label>
+                <input type="text" ng-model="newClas" style="width:60px"/>
+                &nbsp;&nbsp;&nbsp;
+                <label>product:</label>
+                <input type="text" ng-model="newItem" style="width:60px"/>
 
             </div>
         </div>
         <div class="col-md-3">
             <label>Date: </label>
+
             <p class="input-group">
                 <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened"
                        datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"
@@ -27,13 +28,62 @@
             </p>
         </div>
         <br/>
+
         <div class="col-md-3 pull-right">
             <button class="btn btn-primary" ng-disabled="disableCheck()"
-                    ng-click="addPlayer()">
-                <i class="fa fa-search fa-md"></i> Find Otl
+                    ng-click="getOtlList(newDept,newClas,newItem)">
+                <i class="fa fa-search fa-lg"></i> Forecast
             </button>
         </div>
     </div>
+</div>
+
+<br/>
+<div class="alert alert-info" style="margin-left: 10px;width: 500px" ng-show="otlList.length == 0">
+    No OTL information found for this Item# {{deptId}}-{{clasId}}-{{itemId}}
+</div>
+
+<h4 ng-show="otlList.length > 0"><pre>Replenishment Attributes of an Item</pre></h4>
+<div class="table-container">
+    <table st-table="otlList" class="table table-bordered table-striped"
+           ng-show="otlList.length > 0">
+        <thead>
+
+        <tr>
+            <th>Category</th>
+            <th>Style</th>
+            <th>Product</th>
+            <th>location</th>
+            <th>Average Sales</th>
+            <th>Regular pattern</th>
+            <th>Promo pattern</th>
+            <th>Need</th>
+            <th>Buy</th>
+            <th>Move</th>
+            <th>Reserve</th>
+            <th>Liability</th>
+            <th>Transfer</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="otl in otlList">
+              <td>{{otl.deptId}}</td>
+              <td>{{otl.classId}}</td>
+              <td>{{otl.itemId}}</td>
+               <td>{{otl.storeId}}</td>
+              <td>{{otl.ddQty}}</td>
+              <td>{{otl.biQty}}</td>
+              <td>{{otl.pbiQty}}</td>
+              <td>{{otl.otlQty}}</td>
+              <td>{{otl.ooQty}}</td>
+              <td>{{otl.owQty}}</td>
+              <td>{{otl.ohQty}}</td>
+              <td>{{otl.libQty}}</td>
+              <td>{{otl.tranQty}}</td>
+          </tr>
+        </tbody>
+
+    </table>
 </div>
 
 

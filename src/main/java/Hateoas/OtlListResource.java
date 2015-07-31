@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class OtlListResource extends ResourceSupport {
 
-    List<OtlResource> otlResourceList = new ArrayList<OtlResource>();
+    List<OtlResource> otlList = new ArrayList<OtlResource>();
 
-    public List<OtlResource> getOtlResourceList() {
-        return otlResourceList;
+    public List<OtlResource> getOtlList() {
+        return otlList;
     }
 
-    public void setOtlResourceList(List<OtlResource> otlResourceList) {
-        this.otlResourceList = otlResourceList;
+    public void setOtlList(List<OtlResource> otlList) {
+        this.otlList = otlList;
     }
 }

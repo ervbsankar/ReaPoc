@@ -5,6 +5,7 @@ angular.module('ngBoilerplate', [
     'ui.router',
     'ngResource',
     'underscore',
+    'smart-table',
     'rea-otl'
 ])
 

@@ -9,7 +9,7 @@ import org.springframework.data.cassandra.mapping.Table;
  * Created by A513915 on 7/29/2015.
  */
 
-@Table(value = "rea_poc_load1")
+@Table(value = "rea_poc_load2")
 public class ReaOtl {
 
     @PrimaryKey
@@ -26,6 +26,21 @@ public class ReaOtl {
 
     @Column(value = "pbi_q")
     private float pbiQty;
+
+    @Column(value = "oh_q")
+    private float ohQty;
+
+    @Column(value = "oo_q")
+    private float ooQty;
+
+    @Column(value = "ow_q")
+    private float owQty;
+
+    @Column(value = "lib_q")
+    private float libQty;
+
+    @Column(value = "tran_q")
+    private float tranQty;
 
     public ReaOtlPrimaryKey getPrimaryKey() {
         return primaryKey;
@@ -65,5 +80,45 @@ public class ReaOtl {
 
     public void setOtlQty(float otlQty) {
         this.otlQty = otlQty;
+    }
+
+    public float getOhQty() {
+        return ohQty;
+    }
+
+    public void setOhQty(float ohQty) {
+        this.ohQty = ohQty;
+    }
+
+    public float getOoQty() {
+        return ooQty;
+    }
+
+    public void setOoQty(float ooQty) {
+        this.ooQty = ooQty;
+    }
+
+    public float getOwQty() {
+        return owQty;
+    }
+
+    public void setOwQty(float owQty) {
+        this.owQty = owQty;
+    }
+
+    public float getLibQty() {
+        return libQty;
+    }
+
+    public void setLibQty(float libQty) {
+        this.libQty = libQty;
+    }
+
+    public float getTranQty() {
+        return tranQty;
+    }
+
+    public void setTranQty(float tranQty) {
+        this.tranQty = tranQty;
     }
 }

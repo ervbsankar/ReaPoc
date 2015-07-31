@@ -23,18 +23,47 @@ public class OtlController {
     @Autowired
     private ReaDao reaDao;
 
+    /*Below method to get all otl associated with DPCI */
+
     @RequestMapping(value= "/{dept}/{class}/{item}", method= RequestMethod.GET)
     public ResponseEntity<OtlListResource> getAllOtl(@PathVariable("dept") Integer dept, @PathVariable("class") Integer
             clas,@PathVariable("item") Integer item) {
 
         ReaOtlList reaOtlList = new ReaOtlList();
         System.out.println("entered to controller");
-        reaOtlList.setReaOtlList(reaDao.findOtl());
+        System.out.println(clas);
+        reaOtlList.setReaOtlList(reaDao.findOtlItem(dept, clas, item));
         List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
-        for( ReaOtl otl : reaotl){
-            System.out.println("I am Object " + otl);
-            System.out.println("Dept: " + otl.getPrimaryKey().getDeptId());
+        OtlListResource res = null;
+        if(reaOtlList != null) {
+            res = new OtlListResourceAsm().toResource(reaOtlList);
         }
+        return new ResponseEntity<OtlListResource>(res, HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value= "/{dept}/{class}", method= RequestMethod.GET)
+    public ResponseEntity<OtlListResource> getAllOtl(@PathVariable("dept") Integer dept, @PathVariable("class") Integer
+            clas) {
+
+        ReaOtlList reaOtlList = new ReaOtlList();
+        System.out.println("entered to controller");
+        reaOtlList.setReaOtlList(reaDao.findOtlClas(dept, clas));
+        List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
+        OtlListResource res = null;
+        if(reaOtlList != null) {
+            res = new OtlListResourceAsm().toResource(reaOtlList);
+        }
+        return new ResponseEntity<OtlListResource>(res, HttpStatus.OK);
+    }
+
+    @RequestMapping(value= "/{dept}", method= RequestMethod.GET)
+    public ResponseEntity<OtlListResource> getAllOtl(@PathVariable("dept") Integer dept) {
+
+        ReaOtlList reaOtlList = new ReaOtlList();
+        System.out.println("entered to controller");
+        reaOtlList.setReaOtlList(reaDao.findOtlDept(dept));
+        List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
         OtlListResource res = null;
         if(reaOtlList != null) {
             res = new OtlListResourceAsm().toResource(reaOtlList);

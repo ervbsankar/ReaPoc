@@ -18,7 +18,7 @@ public class OtlListResourceAsm extends ResourceAssemblerSupport<ReaOtlList, Otl
     @Override
     public OtlListResource toResource(ReaOtlList entity) {
         OtlListResource res = new OtlListResource();
-        res.setOtlResourceList(new OtlResourceAsm().toResources(entity.getReaOtlList()));
+        res.setOtlList(new OtlResourceAsm().toResources(entity.getReaOtlList()));
         return res;
     }
 }

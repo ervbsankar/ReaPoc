@@ -15,6 +15,11 @@ public class OtlResource extends ResourceSupport {
     private float biQty;
     private float pbiQty;
     private float otlQty;
+    private float ohQty;
+    private float ooQty;
+    private float owQty;
+    private float libQty;
+    private float tranQty;
 
     public Integer getDeptId() {
         return deptId;
@@ -78,5 +83,45 @@ public class OtlResource extends ResourceSupport {
 
     public void setOtlQty(float otlQty) {
         this.otlQty = otlQty;
+    }
+
+    public float getOhQty() {
+        return ohQty;
+    }
+
+    public void setOhQty(float ohQty) {
+        this.ohQty = ohQty;
+    }
+
+    public float getOoQty() {
+        return ooQty;
+    }
+
+    public void setOoQty(float ooQty) {
+        this.ooQty = ooQty;
+    }
+
+    public float getOwQty() {
+        return owQty;
+    }
+
+    public void setOwQty(float owQty) {
+        this.owQty = owQty;
+    }
+
+    public float getLibQty() {
+        return libQty;
+    }
+
+    public void setLibQty(float libQty) {
+        this.libQty = libQty;
+    }
+
+    public float getTranQty() {
+        return tranQty;
+    }
+
+    public void setTranQty(float tranQty) {
+        this.tranQty = tranQty;
     }
 }

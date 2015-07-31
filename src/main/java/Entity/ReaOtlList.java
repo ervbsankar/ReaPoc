@@ -8,13 +8,13 @@ import java.util.List;
  */
 public class ReaOtlList {
 
-    List<ReaOtl> reaOtlList = new ArrayList<ReaOtl>();
+    List<ReaOTL> reaOtlList = new ArrayList<ReaOTL>();
 
-    public List<ReaOtl> getReaOtlList() {
+    public List<ReaOTL> getReaOtlList() {
         return reaOtlList;
     }
 
-    public void setReaOtlList(List<ReaOtl> reaOtlList) {
+    public void setReaOtlList(List<ReaOTL> reaOtlList) {
         this.reaOtlList = reaOtlList;
     }
 }

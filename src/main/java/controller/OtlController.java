@@ -1,7 +1,7 @@
 package controller;
 
 
-import Entity.ReaOtl;
+import Entity.ReaOTL;
 import Entity.ReaOtlList;
 import Hateoas.Assembler.OtlListResourceAsm;
 import Hateoas.OtlListResource;
@@ -33,7 +33,7 @@ public class OtlController {
         System.out.println("entered to controller");
         System.out.println(clas);
         reaOtlList.setReaOtlList(reaDao.findOtlItem(dept, clas, item));
-        List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
+        List<ReaOTL>  reaotl = reaOtlList.getReaOtlList();
         OtlListResource res = null;
         if(reaOtlList != null) {
             res = new OtlListResourceAsm().toResource(reaOtlList);
@@ -49,7 +49,7 @@ public class OtlController {
         ReaOtlList reaOtlList = new ReaOtlList();
         System.out.println("entered to controller");
         reaOtlList.setReaOtlList(reaDao.findOtlClas(dept, clas));
-        List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
+        List<ReaOTL>  reaotl = reaOtlList.getReaOtlList();
         OtlListResource res = null;
         if(reaOtlList != null) {
             res = new OtlListResourceAsm().toResource(reaOtlList);
@@ -63,7 +63,7 @@ public class OtlController {
         ReaOtlList reaOtlList = new ReaOtlList();
         System.out.println("entered to controller");
         reaOtlList.setReaOtlList(reaDao.findOtlDept(dept));
-        List<ReaOtl>  reaotl = reaOtlList.getReaOtlList();
+        List<ReaOTL>  reaotl = reaOtlList.getReaOtlList();
         OtlListResource res = null;
         if(reaOtlList != null) {
             res = new OtlListResourceAsm().toResource(reaOtlList);

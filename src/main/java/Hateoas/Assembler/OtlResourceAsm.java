@@ -1,20 +1,20 @@
 package Hateoas.Assembler;
 
-import Entity.ReaOtl;
+import Entity.ReaOTL;
 import Hateoas.OtlResource;
 import controller.OtlController;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
-public class OtlResourceAsm extends ResourceAssemblerSupport<ReaOtl, OtlResource> {
+public class OtlResourceAsm extends ResourceAssemblerSupport<ReaOTL, OtlResource> {
 
     public OtlResourceAsm() {
         super(OtlController.class, OtlResource.class);
     }
 
     @Override
-    public OtlResource toResource(ReaOtl en) {
+    public OtlResource toResource(ReaOTL en) {
         OtlResource res = new OtlResource();
         res.setDeptId(en.getPrimaryKey().getDeptId());
         res.setClassId(en.getPrimaryKey().getClassId());

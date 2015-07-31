@@ -10,7 +10,7 @@ import org.springframework.data.cassandra.mapping.Table;
  */
 
 @Table(value = "rea_poc_load2")
-public class ReaOtl {
+public class ReaOTL {
 
     @PrimaryKey
     private ReaOtlPrimaryKey primaryKey;

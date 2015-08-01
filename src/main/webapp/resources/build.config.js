@@ -71,7 +71,7 @@ module.exports = {
             'vendor/underscore/underscore-min.js',
             'vendor/jquery/dist/jquery.min.js',
             'vendor/ngDialog/js/ngDialog.js',
-            'vendor/angular-smart-table/dist/smart-table.min.js'
+            'vendor/angular-smart-table/dist/smart-table.js'
         ],
         css: [
             'vendor/ngDialog/css/ngDialog.css',

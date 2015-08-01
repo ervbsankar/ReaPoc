@@ -6,7 +6,8 @@ angular.module('rea-otl', [
     'placeholders',
     'ui.bootstrap',
     'ngResource',
-    'rea-services'
+    'rea-services',
+    'smart-table'
 ])
 
     .config(function config($stateProvider) {
@@ -24,8 +25,7 @@ angular.module('rea-otl', [
 
 
     .controller('OtlCrtl', function ($http, $scope, $state,otlService) {
-
-
+      /*  $scope.flag = true;*/
    /* Below $scope.getAllYears is cloned across multiple scripts */
         $scope.getOtlList = function (dept,clas,item) {
             $scope.deptId = dept;
@@ -34,8 +34,8 @@ angular.module('rea-otl', [
             $scope.otlList = [];
             var getOtl = otlService.get({deptId: dept, clasId: clas, itemId: item}).$promise;
             getOtl.then(function onSuccess(response) {
-                    console.log(response.otlList);
                     $scope.otlList = response.otlList;
+                    $scope.displayedCollection = [].concat($scope.otlList);
                 },
                 function onFail(response) {
                     console.log("It is failed");
@@ -43,6 +43,23 @@ angular.module('rea-otl', [
                 });
         };
 
+        $scope.disableCheck = function(newDept,newClas,newItem){
+            console.log(newDept);
+            if(angular.isUndefined(newDept)){
+                $scope.flag = true;
+                console.log("undefined");
+            }
+            if(angular.isString(newDept)){
+                $scope.flag = true;
+                console.log("String");
+                console.log(value);
+                if(angular.isNumber(newDept)){
+                    $scope.flag = false;
+                    console.log("number");
+                }
+            }
+
+        };
 
        /*Below functions belongs to Calendar */
         $scope.today = function () {

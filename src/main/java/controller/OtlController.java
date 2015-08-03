@@ -61,7 +61,6 @@ public class OtlController {
     public ResponseEntity<OtlListResource> getAllOtl(@PathVariable("dept") Integer dept) {
 
         ReaOtlList reaOtlList = new ReaOtlList();
-        System.out.println("entered to controller");
         reaOtlList.setReaOtlList(reaDao.findOtlDept(dept));
         List<ReaOTL>  reaotl = reaOtlList.getReaOtlList();
         OtlListResource res = null;

@@ -8,10 +8,10 @@
                     <input type="text" ng-model="newDept" style="width:70px"/>
                     &nbsp;&nbsp;&nbsp;
                     <label>style:</label>
-                    <input type="text" ng-model="newClas" style="width:70px;"/>
+                    <input type="text" ng-model="newClas" style="width:70px;" ng-disabled="!newDept"/>
                     &nbsp;&nbsp;&nbsp;
                     <label>product:</label>
-                    <input type="text" ng-model="newItem" style="width:70px"/>
+                    <input type="text" ng-model="newItem" style="width:70px" ng-disabled="!newClas"/>
 
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <br/>
 
         <div class="col-md-3 pull-right">
-            <button class="btn btn-primary" ng-disabled=""
+            <button class="btn btn-primary" ng-disabled="!newDept"
                     ng-click="getOtlList(newDept,newClas,newItem)">
                 <i class="fa fa-search fa-lg"></i> Forecast
             </button>
@@ -72,12 +72,13 @@
                 <th st-sort="classId">Style</th>
                 <th st-sort="itemId">Product</th>
                 <th st-sort="storeId">location</th>
+                <th st-sort="srcNode">Sourcing Node</th>
                 <th st-sort="ddQty">Average Sales</th>
                 <th st-sort="biQty">Regular pattern</th>
                 <th st-sort="pbiQty">Promo pattern</th>
-                <th st-sort="otlQty">Need</th>
-                <th st-sort="ooQty">Buy</th>
-                <th st-sort="owQty">Move</th>
+                <th st-sort="otlQty">Forecast Units</th>
+                <th st-sort="ooQty">OnOrder</th>
+                <th st-sort="owQty">InTransit</th>
                 <th st-sort="ohQty">Reserve</th>
                 <th st-sort="libQty">Liability</th>
                 <th st-sort="tranQty">Recommended Order/Transfer</th>
@@ -98,6 +99,7 @@
                 <td>{{otl.classId}}</td>
                 <td>{{otl.itemId}}</td>
                 <td>{{otl.storeId}}</td>
+                <td>{{otl.srcNode}}</td>
                 <td>{{otl.ddQty}}</td>
                 <td>{{otl.biQty}}</td>
                 <td>{{otl.pbiQty}}</td>
@@ -106,13 +108,13 @@
                 <td>{{otl.owQty}}</td>
                 <td>{{otl.ohQty}}</td>
                 <td>{{otl.libQty}}</td>
-                <td>{{otl.tranQty}}</td>
+                <td>{{otl.tranQty}} <button class="btn btn-success pull-right">Generate</button></td>
             </tr>
             </tbody>
             <br/>
             <tfoot>
             <tr>
-                <td colspan="13" class="text-right">
+                <td colspan="14" class="text-right">
                     <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
                 </td>
             </tr>

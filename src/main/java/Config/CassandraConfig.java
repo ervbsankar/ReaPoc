@@ -18,8 +18,8 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 @EnableCassandraRepositories(basePackages = {"repo"})
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
-   /* @Autowired
-    private Environment env;*/
+   @Autowired
+    private Environment env;
 
     /* Properties are not working. Come back later*/
 
@@ -27,17 +27,17 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     @Override
     public CassandraClusterFactoryBean cluster() {
         CassandraClusterFactoryBean cluster = new CassandraClusterFactoryBean();
-        cluster.setContactPoints("75.73.199.231");
-        /*cluster.setPort(Integer.parseInt(env.getProperty("cassandra.port")));*/
-        cluster.setPort(9042);
-        AuthProvider authProvider = new PlainTextAuthProvider("cassandra","cassandra");
+        cluster.setContactPoints(env.getProperty("cassandra.contactpoints"));
+        cluster.setPort(Integer.parseInt(env.getProperty("cassandra.port")));
+        AuthProvider authProvider = new PlainTextAuthProvider(
+                env.getProperty("cassandra.username"),env.getProperty("cassandra.password"));
         cluster.setAuthProvider(authProvider);
         return cluster;
     }
 
     @Override
     protected String getKeyspaceName() {
-        return "rea_poc";
+        return env.getProperty(env.getProperty("cassandra.keyspace"));
     }
 
     @Bean

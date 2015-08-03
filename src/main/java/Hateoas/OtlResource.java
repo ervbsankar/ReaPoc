@@ -20,6 +20,7 @@ public class OtlResource extends ResourceSupport {
     private float owQty;
     private float libQty;
     private float tranQty;
+    private float srcNode;
 
     public Integer getDeptId() {
         return deptId;
@@ -121,7 +122,16 @@ public class OtlResource extends ResourceSupport {
         return tranQty;
     }
 
-    public void setTranQty(float tranQty) {
+    public void setTranQty(float tranQty)
+    {
         this.tranQty = tranQty;
+    }
+
+    public float getSrcNode() {
+        return srcNode;
+    }
+
+    public void setSrcNode(float srcNode) {
+        this.srcNode = srcNode;
     }
 }

@@ -42,6 +42,10 @@ public class ReaOTL {
     @Column(value = "tran_q")
     private float tranQty;
 
+    @Column(value = "src_node")
+    private float srcNode;
+
+
     public ReaOtlPrimaryKey getPrimaryKey() {
         return primaryKey;
     }
@@ -120,5 +124,14 @@ public class ReaOTL {
 
     public void setTranQty(float tranQty) {
         this.tranQty = tranQty;
+    }
+
+
+    public float getSrcNode() {
+        return srcNode;
+    }
+
+    public void setSrcNode(float srcNode) {
+        this.srcNode = srcNode;
     }
 }

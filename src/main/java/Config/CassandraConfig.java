@@ -5,6 +5,7 @@ import com.datastax.driver.core.PlainTextAuthProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.cassandra.config.CassandraClusterFactoryBean;
@@ -24,6 +25,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     /* Properties are not working. Come back later*/
 
     @Bean
+    @Lazy
     @Override
     public CassandraClusterFactoryBean cluster() {
         CassandraClusterFactoryBean cluster = new CassandraClusterFactoryBean();
@@ -37,10 +39,11 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
 
     @Override
     protected String getKeyspaceName() {
-        return env.getProperty(env.getProperty("cassandra.keyspace"));
+        return env.getProperty("cassandra.keyspace");
     }
 
     @Bean
+    @Lazy
     @Override
     public CassandraMappingContext cassandraMapping() throws  ClassNotFoundException {
         return new BasicCassandraMappingContext();
